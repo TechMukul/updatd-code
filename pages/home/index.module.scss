@@ -1,0 +1,39 @@
+
+.container {
+  // background: url('/firstbanner.png') no-repeat center center;
+  background-size: cover;
+  background-color: #0b0f18;
+  position: relative;
+  // height: 100vh;
+  object-fit: cover;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    height: 42vh;
+  }
+}
+
+.content {
+    // text-align: justify;
+    // position: flex;
+    // width: 100%;
+    background: url('/firstbanner.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    margin-top: 8px;
+    
+    height: auto;
+    // top: 50px;
+    // left: 50px;
+    // width: 100%;
+    // height: 100%;
+    color: white;
+    // background: url('/firstbanner.png');
+    @media screen and (max-width: 768px) {
+      top: 0px;
+      height: 35vh;
+    }
+    
+  }
+  .st{
+    width: 100%;
+  }

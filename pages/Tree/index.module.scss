@@ -1,0 +1,321 @@
+.container {
+  flex: 1;
+  // position: relative;
+  top: 100px;
+  // background-color: black;
+  background-image: url("/tree.jpeg");
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  @media screen and (max-width: 768px) {
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+.loadingOverlay {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+
+
+.treeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff; /* Light background for nodes */
+  margin: 10px;
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+  }
+}
+
+.node .icon {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #6b73ff; /* Soft color for icons */
+}
+
+.node .name {
+  font-weight: bold;
+  color: #333; /* Darker text color for contrast */
+}
+
+.node .email {
+  font-size: 12px;
+  color: #666;
+}
+
+.node .id {
+  font-size: 12px;
+  color: #888;
+}
+
+.lineWrapper {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 50%;
+  height: 30px;
+}
+
+.line {
+  position: absolute;
+  border-left: 2px solid #ccc;
+  height: 100%;
+  width: 100%;
+}
+
+.lineLeft {
+  left: -50%;
+}
+
+.lineRight {
+  right: -50%;
+  @media screen and (max-width: 768px) {
+    right: -24px;
+  }
+}
+
+.children {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.child {
+  margin: 0 10px;
+  @media screen and (max-width:768px) {
+    margin-top: 20px;
+  }
+}
+
+.addChild {
+  margin-top: 10px;
+}
+
+.addChildButton {
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #e0f7fa; /* Soft background for buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #b2ebf2; /* Slightly darker hover background */
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  position: relative;
+  top: 80px;
+  justify-content: center;
+}
+
+.toggleButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e0f7fa; /* Soft background for buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #b2ebf2; /* Slightly darker hover background */
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background: #ffffff; /* Light background for modals */
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin-bottom: 10px;
+}
+
+.form input {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+}
+
+.sendCoins {
+  position: relative;
+  left: 0px;
+  // bottom: -35px; /* Adjust to position the button relative to the node */
+  width: 100%;
+}
+
+.sendCoinsButton {
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #e0f7fa; /* Soft background for buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: #b2ebf2; /* Slightly darker hover background */
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  &.updating {
+    animation: pulse 1s infinite;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.sendCoins {
+  position: relative;
+  left: 0px;
+}
+
+.sendCoinsButton,
+.updateCoinsButton {
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #e0f7fa; /* Soft background for buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 50px;
+
+  &:hover {
+    background-color: #b2ebf2; /* Slightly darker hover background */
+    color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  }
+  @media screen and (max-width:768px) {
+    margin-top: 26px;
+    
+  }
+}
+
+.coinsPopup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+}
+
+.coinsPopup > input,
+.coinsPopup > button {
+  padding: 3px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.coinsPopup button {
+  position: relative;
+  top: 25px;
+  left: 10px;
+}
+
+.sendCoinnew {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.backButton {
+  color: #006739;
+  background-color: white;
+  padding: 1%;
+  margin-top: 40px;
+  @media screen and (max-width: 768px) {
+    color: #006739;
+    background-color: white;
+    padding: 2%;
+    margin-top: 90px;
+  }
+}
+@media screen and (max-screen: 480px) {
+  .treeContainer {
+    position: absolute;
+    top: 250px;
+    right: 0px;
+    left: 60px;
+  }
+}

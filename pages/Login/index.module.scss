@@ -1,0 +1,224 @@
+/* Overlay for loading */
+.loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it's above other elements */
+  backdrop-filter: blur(5px); /* Blur effect */
+}
+
+.spinner {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #00ff00; /* Green */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Existing Styles */
+
+.auroraContainer {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // opacity: 70%;
+  height: 100vh;
+  width: 100%;
+  background-image: url("/login.png"); /* Add your image path here */
+  background-size: cover;
+  background-position: center;
+  @media screen and (max-width:(768px)) {
+    background-image: url("../../public/loginmob.jpeg");
+    // margin-left: 1%;
+  }
+}
+
+.loginForm {
+  // background-color: #000000cc; /* Black background with transparency */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 450px;
+  animation: slideInFromLeft 1s ease-out;
+  align-items: center;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  color: #00ff00; /* Green font color */
+  // box-shadow: rgba(255, 255, 255) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  position: absolute;
+  left: 60%;
+  height: 70vh;
+  &:hover {
+    box-shadow: rgb(255, 255, 255) 0px 20px 30px -10px;
+  }
+  
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.loginTitle {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #00ff00; /* Green color for title */
+  font-size: 24px;
+  font-weight: bolder;
+  animation: pulse 1.5s infinite;
+  font-size: 4rem;
+  font-family: 'Sevillana';
+}
+
+.inputContainer {
+  position: relative;
+  margin-bottom: 40px;
+  width: 350px;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #00ff00; /* Green border-bottom */
+    background-color: transparent;
+    color: #00ff00; /* Green text color */
+    transition: border-color 0.3s ease;
+    
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    &::placeholder {
+      color: #00ff00; /* Green placeholder text color */
+    }
+  }
+
+  label {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: #00ff00; /* Green color for label */
+    transition: 0.2s;
+    pointer-events: none;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    top: -20px;
+    font-size: 12px;
+    color: #2196f3;
+  }
+
+  .inputUnderline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  input:focus ~ .inputUnderline {
+    transform: scaleX(1);
+  }
+}
+
+.loginButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #00ff00; /* Green button background */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: #008000; /* Dark green button background on hover */
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.inputContainer input {
+  color: white;
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+  .loginForm {
+    width: 90%;
+    height: auto;
+    position: relative;
+    top: 15px;
+    left: 0;
+    box-shadow: none;
+  }
+  
+  .loginContainer {
+    background-size: cover;
+    background-position: center;
+  }
+}

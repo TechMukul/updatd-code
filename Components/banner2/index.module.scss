@@ -1,0 +1,42 @@
+.container {
+  background: url("") no-repeat center center;
+  background-size: cover;
+  // position: f;
+  display: flex;
+  position: relative;
+  height: auto;
+  background-color: #0b0f18;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    margin-top:40%;
+    // height: 20vh;
+   }
+}
+.left {
+  background-size: cover;
+  // position: relative;
+  margin-top: 50px;
+  height: auto;
+  flex: 1;
+  margin-left: 20px;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    flex: 1;
+  //  height: 10vh;
+  margin-top: 0;
+  margin-left: 0px;
+   }
+}
+.right {
+  color: white;
+  width: 100%;
+  margin-top: 50px;
+  padding: 5%;
+  margin-left: 15px;
+  flex: 1;
+  @media screen and (max-width: 768px) {
+   margin-top: 5px;
+   margin-left: 0px;
+  }
+}

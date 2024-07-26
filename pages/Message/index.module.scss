@@ -1,0 +1,199 @@
+.cotainer{
+  width: 100%;
+  overflow: hidden;
+}
+.main {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  top: 0;
+  // border: 1px solid black;
+  background-image: url('../../public/message.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.message-form {
+  width: 90%; /* Change width to 90% for better responsiveness */
+  max-width: 600px; /* Maximum width for larger screens */
+  margin-top:100px ;
+  margin-left: 25%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  // margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh; /* Fixed height for responsiveness */
+  max-height: 80vh; /* Ensure it doesn't exceed the viewport height */
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: white 0px 3px 12px;
+  }
+
+  h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #34495e; /* Darker text color */
+  }
+
+  .message-container {
+    flex: 1;
+    overflow-y: auto; /* Allow vertical scrolling */
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    .message {
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 20px;
+      position: relative;
+      max-width: 75%;
+      word-wrap: break-word;
+      transition: transform 0.2s ease; /* Animation for hover effect */
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+      &:hover {
+        transform: scale(1.02); /* Slight zoom on hover */
+      }
+
+      &.sent {
+        background-color: #138e56; 
+        align-self: flex-end;
+        margin-right: 10px;
+        width: 60%; /* Increased width for better readability on mobile */
+        display: flex;
+        flex-direction: column;
+        color: white;
+        font-size: 16px;
+      }
+
+      &.received {
+        background-color: #2980b9; 
+        border: 1px solid #ddd;
+        align-self: flex-start;
+        margin-left: 10px;
+        width: 60%; /* Increased width for better readability on mobile */
+        color: white;
+      }
+
+      strong {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #0f0f0f; 
+        font-family: "Playwrite AR", cursive;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+      }
+    }
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on mobile */
+    width: 100%;
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #006739;
+      border-radius: 20px;
+      transition: border-color 0.3s ease;
+      margin-bottom: 10px; /* Margin for spacing between textarea and button */
+      resize: none; /* Prevent resizing */
+      box-sizing: border-box; /* Include padding and border in width calculation */
+
+      &:focus {
+        border-color: #3498db; /* Highlight border on focus */
+      }
+    }
+
+    .send-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      background-color: #3498db; /* Light blue button */
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+
+      &:hover {
+        background-color: #2980b9; /* Darker blue on hover */
+        transform: scale(1.1); /* Slight zoom on hover */
+      }
+
+      svg {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.sevillanaregular {
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sender {
+  font-size: 1.2rem;
+}
+
+.heading h2 {
+  color: #006739;
+  font-size: 25px;
+}
+
+@media (max-width: 768px) {
+  .message-form {
+    width: 100%;
+    margin-top: 101px;
+    border-radius: 0px;
+    height: auto; /* Allow height to be dynamic on smaller screens */
+    max-height:90vh; /* Ensure it doesn't exceed the viewport height */
+    margin-left: 0%;
+  }
+
+  .form-group {
+    display: flex;
+  
+  }
+
+  .send-button {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 20px;
+  }
+  .messagebox{
+    width: 100%;
+  }
+  .btn{
+    position: absolute;
+    right: 40px;
+    bottom: 80px;
+  }
+
+}

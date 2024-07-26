@@ -1,0 +1,261 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+  height: auto;
+  position: relative;
+  background-color: black;
+  overflow: visible;
+}
+
+.imageContainer {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.5);
+  transition: filter 0.5s ease;
+  z-index: 1;
+  height: 100vh;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #0B0B0D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  animation: fadeIn 2s ease;
+}
+
+.contactInfo {
+  max-width: 100%;
+  margin: auto;
+  opacity: 1;
+  animation: fadeInUp 1.5s forwards;
+  z-index: 2;
+  animation-delay: 0.5s;
+  margin-top: 50px;
+}
+
+.head {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: bounceIn 1s;
+}
+
+.subheading {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  animation: fadeInUp 2s;
+}
+
+.bullets {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  animation: fadeInUp 2.5s;
+  animation-delay: 1s;
+  opacity: 1;
+  list-style-type: none;
+  padding-left: 20px;
+}
+
+.offering {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.offer {
+  font-size: 1.3rem;
+  width: 70%;
+  margin: 20px 0;
+  animation: fadeInUp 3s;
+  animation-delay: 1.2s;
+  animation: heartbeat 1.5s infinite;
+  color: #f0f0f0;
+  font-weight: bold;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.contactButtons {
+  // background-color: #0B0B0D;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.buttonWrapper {
+  width: 100%; /* Full width on smaller screens */
+  // max-width: 300px; /* Limit maximum width of each button wrapper */
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  height: auto;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  margin-top: 30px;
+}
+
+.img {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 90px;
+  h1 {
+    width: 200px;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 10px;
+  }
+}
+
+.button {
+  display: block;
+  background: #25d366;
+  color: #fff;
+  font-weight: 600;
+  padding: 15px 50px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: #159945;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+.whatsappButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.whatsappIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Media Queries for Mobile Devices */
+@media screen and (max-width: 380px) { 
+  .contactButtons{
+    height: 140vh;
+    margin-top: -67px;
+    gap: 7px;
+  }
+  
+}
+@media screen and (max-width: 768px) {
+  .image {
+    height: 50vh; /* Adjust image height for mobile devices */
+  }
+  .container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .footer{
+    position: relative;
+    top: 920px;
+  }
+
+  .overlay {
+    padding: 10px;
+    top: 40px;
+    .contactInfo {
+      margin-top: 20px;
+      .head {
+        font-size: 2rem;
+      }
+      .subheading {
+        font-size: 1.2rem;
+      }
+      .bullets {
+        font-size: 1.2rem;
+      }
+      .offer {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .contactButtons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center; /* Center buttons horizontally */
+    gap: 5px;
+  }
+
+  .buttonWrapper {
+    width: 100%;
+    max-width: none; /* Remove max-width constraint */
+    margin-top: 20px;
+  }
+
+  .whatsappButton {
+    margin-bottom: 18px;
+    margin-right: 0;
+    .whatsappIcon {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

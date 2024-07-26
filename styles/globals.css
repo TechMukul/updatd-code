@@ -1,0 +1,13 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: 'Aclonica';
+  src: url('/public/fonts/aclonica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'Aclonica', sans-serif;
+}
